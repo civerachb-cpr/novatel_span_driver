@@ -30,14 +30,14 @@ import rospy
 import novatel_msgs.msg as msg
 
 # Node source
-from translator import Translator
+from .translator import Translator
 
 # Python
 import threading
 import socket
 import serial
 import struct
-from cStringIO import StringIO
+from io import StringIO
 
 
 class Port(threading.Thread):

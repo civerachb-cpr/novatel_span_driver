@@ -39,7 +39,7 @@ from novatel_span_driver.monitor import Monitor
 import socket
 import serial
 import struct
-from cStringIO import StringIO
+from io import StringIO
 import time
 
 from novatel_span_driver import translator
@@ -123,7 +123,7 @@ def create_test_sock(pcap_filename):
     except ImportError:
         import pure_pcapy as pcapy
 
-    from StringIO import StringIO
+    from io import StringIO
     from impacket import ImpactDecoder
 
     body_list = []
@@ -143,7 +143,7 @@ def create_test_sock(pcap_filename):
     decoder = ImpactDecoder.EthDecoder()
 
     while True:
-        header, payload = cap.next()
+        header, payload = next(cap)
         if not header:
             break
         try:

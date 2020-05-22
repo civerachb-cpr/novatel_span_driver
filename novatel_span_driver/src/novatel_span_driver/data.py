@@ -29,12 +29,12 @@
 import rospy
 import novatel_msgs.msg
 
-from port import Port
+from .port import Port
 from novatel_span_driver.mapping import msgs
-from handlers import MessageHandler
-import translator
+from .handlers import MessageHandler
+from . import translator
 
-from cStringIO import StringIO
+from io import StringIO
 from threading import Lock
 
 

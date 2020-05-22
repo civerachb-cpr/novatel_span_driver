@@ -33,8 +33,7 @@ import roslib.msgs
 import genpy
 import rospy
 import struct
-from itertools import izip
-from cStringIO import StringIO
+from io import StringIO
 
 
 class EndOfBuffer(BaseException):
@@ -92,7 +91,7 @@ class FixedFieldsHandler(Handler):
         if st == '':
             return
         values = self.struct.unpack(st)
-        for name, value in izip(self.names, values):
+        for name, value in zip(self.names, values):
             setattr(msg, name, value)
 
 
